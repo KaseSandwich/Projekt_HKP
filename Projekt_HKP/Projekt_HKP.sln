@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projekt_HKP.GUI", "Projekt_HKP.GUI\Projekt_HKP.GUI.csproj", "{FC84A34E-BA26-4CF3-A69F-D4EF1E0E604E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projekt_HKP.Lib", "Projekt_HKP.Lib\Projekt_HKP.Lib.csproj", "{91259685-C9AE-4605-93B1-4E7AEB6A39D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projekt_HKP.Model", "Projekt_HKP.Model\Projekt_HKP.Model.csproj", "{81364A7B-2CD3-4C64-B5C1-5137A52229F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projekt_HKP.Tests", "Projekt_HKP.Tests\Projekt_HKP.Tests.csproj", "{EF2C9148-A66D-40AC-83C3-C59A1735242E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FC84A34E-BA26-4CF3-A69F-D4EF1E0E604E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC84A34E-BA26-4CF3-A69F-D4EF1E0E604E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC84A34E-BA26-4CF3-A69F-D4EF1E0E604E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC84A34E-BA26-4CF3-A69F-D4EF1E0E604E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91259685-C9AE-4605-93B1-4E7AEB6A39D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91259685-C9AE-4605-93B1-4E7AEB6A39D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91259685-C9AE-4605-93B1-4E7AEB6A39D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91259685-C9AE-4605-93B1-4E7AEB6A39D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81364A7B-2CD3-4C64-B5C1-5137A52229F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81364A7B-2CD3-4C64-B5C1-5137A52229F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81364A7B-2CD3-4C64-B5C1-5137A52229F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81364A7B-2CD3-4C64-B5C1-5137A52229F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF2C9148-A66D-40AC-83C3-C59A1735242E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF2C9148-A66D-40AC-83C3-C59A1735242E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF2C9148-A66D-40AC-83C3-C59A1735242E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF2C9148-A66D-40AC-83C3-C59A1735242E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
