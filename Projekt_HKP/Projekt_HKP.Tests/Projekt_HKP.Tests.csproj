@@ -54,10 +54,24 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="JsonDataServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="DebugTestJson.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Projekt_HKP.Lib\Projekt_HKP.Lib.csproj">
+      <Project>{91259685-C9AE-4605-93B1-4E7AEB6A39D0}</Project>
+      <Name>Projekt_HKP.Lib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Projekt_HKP.Model\Projekt_HKP.Model.csproj">
+      <Project>{81364A7B-2CD3-4C64-B5C1-5137A52229F1}</Project>
+      <Name>Projekt_HKP.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

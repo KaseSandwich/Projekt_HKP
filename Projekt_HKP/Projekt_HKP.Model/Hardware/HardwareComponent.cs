@@ -3,9 +3,10 @@ using Projekt_HKP.GUI.Common;
 
 namespace Projekt_HKP.Model.Hardware
 {
-    public  abstract class HardwareComponent
+    public class HardwareComponent
     {
         public string UID { get; set; }
+        public string RoomUID { get; set; }
         public string Bezeichnung { get; set; }
         public string Beschreibung { get; set; }
         public DateTime BeschaffungsDatum { get; set; }
