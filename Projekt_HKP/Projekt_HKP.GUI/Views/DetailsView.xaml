@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="Projekt_HKP.GUI.Views.DetailsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ctrl="clr-namespace:Projekt_HKP.GUI.Controls"
+             xmlns:local="clr-namespace:Projekt_HKP.GUI.Views"
+             mc:Ignorable="d" 
+             Background="White"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <StackPanel Orientation="Vertical" 
+                    x:Name="ContentPanel">
+            <Label Margin="3,3,3,3">Allgemein</Label>
+            <Rectangle Fill="Black"
+                       Height="1"
+                       Margin="3,0,3,0"
+                       StrokeThickness="5"
+                       Width="{Binding ElementName=ContentPanel, Path=ActualWidth}"/>
+            
+            <StackPanel Orientation="Vertical"
+                        HorizontalAlignment="Left"
+                        Margin="3,3,3,3">
+                <ctrl:LabeledTextbox Label="Bezeichnung"
+                                     Margin="3,3,3,3"
+                                     Text=""></ctrl:LabeledTextbox>
+                <ctrl:LabeledTextbox Label="Beschreibung"
+                                     Margin="3,3,3,3"
+                                     Text=""></ctrl:LabeledTextbox>
+                <ctrl:LabeledTextbox Label="Beschaffungsdatum"
+                                     Margin="3,3,3,3"
+                                     Text=""></ctrl:LabeledTextbox>
+                <ctrl:LabeledTextbox Label="Wartungsdatum"
+                                     Margin="3,3,3,3"
+                                     Text=""></ctrl:LabeledTextbox>
+            </StackPanel>
+        </StackPanel>
+        
+        
+        
+    </Grid>
+</UserControl>

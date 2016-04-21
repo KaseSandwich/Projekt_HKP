@@ -44,10 +44,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataAccess\IDataService.cs" />
+    <Compile Include="DataAccess\JsonDataService.cs" />
+    <Compile Include="ModelWrapper\MyHardwareComponent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Projekt_HKP.Model\Projekt_HKP.Model.csproj">
+      <Project>{81364A7B-2CD3-4C64-B5C1-5137A52229F1}</Project>
+      <Name>Projekt_HKP.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="Projekt_HKP.GUI.Views.SelectorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Projekt_HKP.GUI.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <ListView ItemsSource="{Binding HardwareComponents}"
+                  Grid.Row="0"
+                  Margin="3,3,3,3">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Bezeichnung}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+        <StackPanel Grid.Row="1"
+                    Orientation="Horizontal">
+            <Button Width="100"
+                    Height="30"
+                    Margin="3,3,3,3"
+                    Content="Add"/>
+            <Button Width="100"
+                    Height="30"
+                    Margin="3,3,3,3"
+                    Content="Delete"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

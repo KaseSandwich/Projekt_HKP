@@ -40,7 +40,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Hardware\Implementations\AccessPoint.cs" />
+    <Compile Include="Hardware\Implementations\Switch.cs" />
+    <Compile Include="Hardware\Implementations\Router.cs" />
+    <Compile Include="Hardware\Implementations\Notebook.cs" />
+    <Compile Include="Hardware\Implementations\Server.cs" />
+    <Compile Include="Hardware\Implementations\DesktopPc.cs" />
+    <Compile Include="Hardware\Implementations\Drucker.cs" />
+    <Compile Include="Orgaisation\Department.cs" />
+    <Compile Include="Orgaisation\Company.cs" />
+    <Compile Include="Orgaisation\Room.cs" />
+    <Compile Include="Orgaisation\Building.cs" />
+    <Compile Include="Hardware\Computer.cs" />
+    <Compile Include="Hardware\NetworkComponent.cs" />
+    <Compile Include="Hardware\HardwareComponent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Projekt_HKP.GUI\Projekt_HKP.GUI.csproj">
+      <Project>{FC84A34E-BA26-4CF3-A69F-D4EF1E0E604E}</Project>
+      <Name>Projekt_HKP.GUI</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
