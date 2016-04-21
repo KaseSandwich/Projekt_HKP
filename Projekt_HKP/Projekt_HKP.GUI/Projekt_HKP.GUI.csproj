@@ -45,6 +45,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.1.2.4.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
       <Private>True</Private>
@@ -67,10 +68,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\LabeledDatePicker.xaml.cs">
+      <DependentUpon>LabeledDatePicker.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\LabeledTextbox.xaml.cs">
       <DependentUpon>LabeledTextbox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converter\DateTimeToStringConverter.cs" />
     <Compile Include="ViewModel\DetailsViewModel.cs" />
+    <Compile Include="ViewModel\SelectorItemViewModel.cs" />
     <Compile Include="ViewModel\SelectorViewModel.cs" />
     <Compile Include="Views\DetailsView.xaml.cs">
       <DependentUpon>DetailsView.xaml</DependentUpon>
@@ -78,6 +84,10 @@
     <Compile Include="Views\SelectorView.xaml.cs">
       <DependentUpon>SelectorView.xaml</DependentUpon>
     </Compile>
+    <Page Include="Controls\LabeledDatePicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\LabeledTextbox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -137,7 +147,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Projekt_HKP.Lib\Projekt_HKP.Lib.csproj">
+      <Project>{91259685-c9ae-4605-93b1-4e7aeb6a39d0}</Project>
+      <Name>Projekt_HKP.Lib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Projekt_HKP.Model\Projekt_HKP.Model.csproj">
+      <Project>{81364a7b-2cd3-4c64-b5c1-5137a52229f1}</Project>
+      <Name>Projekt_HKP.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -38,10 +38,10 @@ namespace TestConsole
             {
                 new DesktopPc()
                 {
-                    Bezeichnung = "Mein Desktop PC",
-                    Beschreibung = "Toller Rechner",
-                    BeschaffungsDatum = new DateTime(2016, 1, 1),
-                    WartungsDatum = new DateTime(2016, 4, 1),
+                    Name = "Mein Desktop PC",
+                    Description = "Toller Rechner",
+                    AcquisitionDate = new DateTime(2016, 1, 1),
+                    MaintenanceDate = new DateTime(2016, 4, 1),
                     CpuClockSpeed = 3.0,
                     HardDiskSpace = 500,
                     NetworkSpeed = 100,
@@ -50,11 +50,11 @@ namespace TestConsole
                 },
                 new Switch()
                 {
-                    Bezeichnung = "Mein Desktop PC",
-                    Beschreibung = "Toller Rechner",
-                    BeschaffungsDatum = new DateTime(2016, 1, 1),
-                    WartungsDatum = new DateTime(2016, 4, 1),
-                    NetworkSpeed = 100,
+                    Name = "Mein Switch",
+                    Description = "Toller Switch",
+                    AcquisitionDate = new DateTime(2016, 2, 1),
+                    MaintenanceDate = new DateTime(2016, 3, 1),
+                    NetworkSpeed = 50,
                     MaxConnections = 24,
                     NumberOfPorts = 24,
                     RoomUID = room1.UID

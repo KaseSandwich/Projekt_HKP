@@ -32,6 +32,11 @@ namespace Projekt_HKP.GUI.Controls
                     typeof(LabeledTextbox),
                     new FrameworkPropertyMetadata("", FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
 
+        //public static readonly DependencyProperty InputScopeProperty = DependencyProperty
+        //.Register("InputScope",
+        //        typeof(InputScope),
+        //        typeof(LabeledTextbox));
+
         public LabeledTextbox()
         {
             InitializeComponent();
@@ -43,6 +48,12 @@ namespace Projekt_HKP.GUI.Controls
             get { return (string)GetValue(LabelProperty); }
             set { SetValue(LabelProperty, value); }
         }
+
+        //public new InputScope InputScope
+        //{
+        //    get { return (InputScope)GetValue(InputScopeProperty); }
+        //    set { SetValue(InputScopeProperty, value); }
+        //}
 
         public string Text
         {

@@ -56,12 +56,6 @@
     <Compile Include="Hardware\HardwareComponent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Projekt_HKP.GUI\Projekt_HKP.GUI.csproj">
-      <Project>{FC84A34E-BA26-4CF3-A69F-D4EF1E0E604E}</Project>
-      <Name>Projekt_HKP.GUI</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

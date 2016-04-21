@@ -46,7 +46,6 @@
   <ItemGroup>
     <Compile Include="DataAccess\IDataService.cs" />
     <Compile Include="DataAccess\JsonDataService.cs" />
-    <Compile Include="ModelWrapper\MyHardwareComponent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

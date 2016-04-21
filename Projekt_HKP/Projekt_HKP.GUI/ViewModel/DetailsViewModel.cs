@@ -9,5 +9,9 @@ namespace Projekt_HKP.GUI.ViewModel
 {
     public class DetailsViewModel : ViewModelBase
     {
+        public void Load()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

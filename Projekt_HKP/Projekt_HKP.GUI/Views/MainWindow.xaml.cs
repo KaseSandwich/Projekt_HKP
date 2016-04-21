@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using MahApps.Metro.Controls;
+using Projekt_HKP.GUI.ViewModel;
 
 namespace Projekt_HKP.GUI.Views
 {
@@ -8,9 +9,18 @@ namespace Projekt_HKP.GUI.Views
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
-        public MainWindow()
+        private MainViewModel _viewModel;
+
+        public MainWindow(MainViewModel viewModel)
         {
             InitializeComponent();
+            _viewModel = viewModel;
+            DataContext = _viewModel;
+        }
+
+        private void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
+        {
+            _viewModel.Load();
         }
     }
 }

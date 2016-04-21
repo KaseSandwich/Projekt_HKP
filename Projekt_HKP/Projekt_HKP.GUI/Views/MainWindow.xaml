@@ -7,7 +7,8 @@
         xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:views="clr-namespace:Projekt_HKP.GUI.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="650" Width="1100">
+        Title="MainWindow" Height="650" Width="1100"
+                      Loaded="MainWindow_OnLoaded">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" MaxWidth="400"/>
@@ -15,6 +16,7 @@
         </Grid.ColumnDefinitions>
 
         <views:SelectorView Grid.Column="0"
+                            DataContext="{Binding SelectorViewModel}"
                             Margin="6,6,3,6"></views:SelectorView>
 
         <views:DetailsView Grid.Column="1"

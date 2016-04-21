@@ -1,5 +1,4 @@
 ﻿using System;
-using Projekt_HKP.GUI.Common;
 
 namespace Projekt_HKP.Model.Hardware
 {
@@ -7,10 +6,10 @@ namespace Projekt_HKP.Model.Hardware
     {
         public string UID { get; set; }
         public string RoomUID { get; set; }
-        public string Bezeichnung { get; set; }
-        public string Beschreibung { get; set; }
-        public DateTime BeschaffungsDatum { get; set; }
-        public DateTime WartungsDatum { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public DateTime AcquisitionDate { get; set; }
+        public DateTime MaintenanceDate { get; set; }
         public string Log { get; private set; } //ToDo refactor to own class or to list
 
         public HardwareComponent()

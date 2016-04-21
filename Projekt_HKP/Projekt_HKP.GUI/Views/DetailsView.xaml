@@ -5,9 +5,33 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:ctrl="clr-namespace:Projekt_HKP.GUI.Controls"
              xmlns:local="clr-namespace:Projekt_HKP.GUI.Views"
+             xmlns:modelHardware="clr-namespace:Projekt_HKP.Model.Hardware.Implementations;assembly=Projekt_HKP.Model"
              mc:Ignorable="d" 
              Background="White"
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="500" d:DesignWidth="600">
+    <UserControl.Resources>
+        <DataTemplate DataType="modelHardware:DesktopPc">
+            <WrapPanel Orientation="Vertical" 
+                       FlowDirection="LeftToRight">
+                <ctrl:LabeledTextbox Label="CPU-Clock"
+                                     Text="{Binding CpuClockSpeed, Mode=TwoWay}"
+                                     InputScope="Number">
+                </ctrl:LabeledTextbox>
+                <ctrl:LabeledTextbox Label="RAM"
+                                     Text="{Binding CpuClockSpeed, Mode=TwoWay}"
+                                     InputScope="Number">
+                </ctrl:LabeledTextbox>
+                <ctrl:LabeledTextbox Label="Festplattengröße"
+                                     Text="{Binding CpuClockSpeed, Mode=TwoWay}"
+                                     InputScope="Number">
+                </ctrl:LabeledTextbox>
+                <ctrl:LabeledTextbox Label="Netzwerk Geschwindigkeit"
+                                     Text="{Binding CpuClockSpeed, Mode=TwoWay}"
+                                     InputScope="Number">
+                </ctrl:LabeledTextbox>
+            </WrapPanel>
+        </DataTemplate>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -23,25 +47,37 @@
                        StrokeThickness="5"
                        Width="{Binding ElementName=ContentPanel, Path=ActualWidth}"/>
             
-            <StackPanel Orientation="Vertical"
-                        HorizontalAlignment="Left"
-                        Margin="3,3,3,3">
+            <WrapPanel Orientation="Vertical"
+                       FlowDirection="LeftToRight"
+                       HorizontalAlignment="Left"
+                       Margin="3,3,3,3">
                 <ctrl:LabeledTextbox Label="Bezeichnung"
                                      Margin="3,3,3,3"
-                                     Text=""></ctrl:LabeledTextbox>
+                                     Text="{Binding Name, Mode=TwoWay}"></ctrl:LabeledTextbox>
                 <ctrl:LabeledTextbox Label="Beschreibung"
                                      Margin="3,3,3,3"
-                                     Text=""></ctrl:LabeledTextbox>
-                <ctrl:LabeledTextbox Label="Beschaffungsdatum"
-                                     Margin="3,3,3,3"
-                                     Text=""></ctrl:LabeledTextbox>
-                <ctrl:LabeledTextbox Label="Wartungsdatum"
-                                     Margin="3,3,3,3"
-                                     Text=""></ctrl:LabeledTextbox>
-            </StackPanel>
+                                     Text="{Binding Description, Mode=TwoWay}"></ctrl:LabeledTextbox>
+                <ctrl:LabeledDatePicker Label="Beschaffungsdatum"
+                                        Margin="3,3,3,3"
+                                        CurrentDateTime="{Binding AcquisitionDate, Mode=TwoWay}"></ctrl:LabeledDatePicker>
+                <ctrl:LabeledDatePicker Label="Wartungsdatum"
+                                        Margin="3,3,3,3"
+                                        CurrentDateTime="{Binding MaintenanceDate, Mode=TwoWay}"></ctrl:LabeledDatePicker>
+            </WrapPanel>
+            
+            <Rectangle Fill="Transparent" 
+                       Height="15"/>
+            
+            <Label Margin="3,3,3,3">Spezifisch</Label>
+            <Rectangle Fill="Black"
+                       Height="1"
+                       Margin="3,0,3,0"
+                       StrokeThickness="5"
+                       Width="{Binding ElementName=ContentPanel, Path=ActualWidth}"/>
         </StackPanel>
         
-        
+        <ContentControl Content="{Binding Component}"></ContentControl>
         
     </Grid>
 </UserControl>
+
