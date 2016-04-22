@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Projekt_HKP.GUI.Views"
         xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
         mc:Ignorable="d"
-        Title="TypeSelectionPopup" Height="150" Width="250"
+        Title="Neu" Height="150" Width="250"
                       BorderThickness="1"
                       BorderBrush="LightSlateGray">
     <Grid>
@@ -14,14 +14,14 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <StackPanel>
+        <StackPanel Margin="3,3,3,3">
             <Label>Art der Komponente:</Label>
-            <ComboBox x:Name="ComboBox"/>
+            <ComboBox x:Name="ComboBox" Margin="3,3,3,3"/>
         </StackPanel>
         <StackPanel Grid.Row="1" 
                     Orientation="Horizontal">
-            <Button Margin="3,3,3,3" x:Name="btn_Accept" Click="Btn_Accept_OnClick">Übernehmen</Button>
-            <Button Margin="3,3,3,3" x:Name="btn_Cancel" Click="Btn_Cancel_OnClick">Abbrechen</Button>
+            <Button Margin="3,3,3,3" x:Name="btn_Accept" Click="Btn_Accept_OnClick" Style="{DynamicResource MyMetroButton}">Übernehmen</Button>
+            <Button Margin="3,3,3,3" x:Name="btn_Cancel" Click="Btn_Cancel_OnClick" Style="{DynamicResource MyMetroButton}">Abbrechen</Button>
         </StackPanel>
     </Grid>
 </controls:MetroWindow>

@@ -16,5 +16,10 @@ namespace Projekt_HKP.Model.Orgaisation
             UID = Guid.NewGuid().ToString("D");
             Components = new List<HardwareComponent>();
         }
+
+        public override string ToString()
+        {
+            return RoomNumber.ToString();
+        }
     }
 }

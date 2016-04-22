@@ -21,10 +21,11 @@ namespace Projekt_HKP.Lib.DataAccess
         IEnumerable<HardwareComponent> GetComponentsOfBuilding(string buildingUid);
         IEnumerable<Building> GetAllBuildings();
         IEnumerable<Room> GetAllRoomsForBuilding(string buildingUid);
+        Room GetRoomByUid(string uid);
+        Building GetBuildingByUid(string uid);
 
         //Update
         bool SaveAllComponents(string fileName);
-        void UpdateComponent(HardwareComponent component);
 
         //Delete
         bool DeleteComponent(string uid);

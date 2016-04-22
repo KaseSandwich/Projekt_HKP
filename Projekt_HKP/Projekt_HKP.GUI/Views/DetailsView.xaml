@@ -15,26 +15,154 @@
         <DataTemplate DataType="{x:Type modelHardware:DesktopPc}">
             <WrapPanel Orientation="Vertical" 
                        FlowDirection="LeftToRight">
-                <ctrl:LabeledTextbox Label="CPU-Clock"
+                <ctrl:LabeledTextbox Label="CPU-Clock (GHz)"
                                      Margin="3,3,3,3"
                                      Text="{Binding CpuClockSpeed, Mode=TwoWay}"
                                      InputScope="Number">
                 </ctrl:LabeledTextbox>
-                <ctrl:LabeledTextbox Label="RAM"
+                <ctrl:LabeledTextbox Label="RAM (GB)"
                                      Margin="3,3,3,3"
                                      Text="{Binding RamAmount, Mode=TwoWay}"
                                      InputScope="Number">
                 </ctrl:LabeledTextbox>
-                <ctrl:LabeledTextbox Label="Festplattengröße"
+                <ctrl:LabeledTextbox Label="Festplattengröße (GB)"
                                      Margin="3,3,3,3"
                                      Text="{Binding HardDiskSpace, Mode=TwoWay}"
                                      InputScope="Number">
                 </ctrl:LabeledTextbox>
-                <ctrl:LabeledTextbox Label="Netzwerk Geschwindigkeit"
+                <ctrl:LabeledTextbox Label="Netzwerk Geschw. (MB/s)"
                                      Margin="3,3,3,3"
                                      Text="{Binding NetworkSpeed, Mode=TwoWay}"
                                      InputScope="Number">
                 </ctrl:LabeledTextbox>
+            </WrapPanel>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type modelHardware:Server}">
+            <WrapPanel Orientation="Vertical" 
+                       FlowDirection="LeftToRight">
+                <ctrl:LabeledTextbox Label="CPU-Clock (GHz)"
+                                     Margin="3,3,3,3"
+                                     Text="{Binding CpuClockSpeed, Mode=TwoWay}"
+                                     InputScope="Number">
+                </ctrl:LabeledTextbox>
+                <ctrl:LabeledTextbox Label="RAM (GB)"
+                                     Margin="3,3,3,3"
+                                     Text="{Binding RamAmount, Mode=TwoWay}"
+                                     InputScope="Number">
+                </ctrl:LabeledTextbox>
+                <ctrl:LabeledTextbox Label="Festplattengröße (GB)"
+                                     Margin="3,3,3,3"
+                                     Text="{Binding HardDiskSpace, Mode=TwoWay}"
+                                     InputScope="Number">
+                </ctrl:LabeledTextbox>
+                <ctrl:LabeledTextbox Label="Netzwerk Geschw. (MB/s)"
+                                     Margin="3,3,3,3"
+                                     Text="{Binding NetworkSpeed, Mode=TwoWay}"
+                                     InputScope="Number">
+                </ctrl:LabeledTextbox>
+            </WrapPanel>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type modelHardware:Notebook}">
+            <WrapPanel Orientation="Vertical" 
+                       FlowDirection="LeftToRight">
+                <ctrl:LabeledTextbox Label="CPU-Clock (GHz)"
+                                     Margin="3,3,3,3"
+                                     Text="{Binding CpuClockSpeed, Mode=TwoWay}"
+                                     InputScope="Number">
+                </ctrl:LabeledTextbox>
+                <ctrl:LabeledTextbox Label="RAM (GB)"
+                                     Margin="3,3,3,3"
+                                     Text="{Binding RamAmount, Mode=TwoWay}"
+                                     InputScope="Number">
+                </ctrl:LabeledTextbox>
+                <ctrl:LabeledTextbox Label="Festplattengröße (GB)"
+                                     Margin="3,3,3,3"
+                                     Text="{Binding HardDiskSpace, Mode=TwoWay}"
+                                     InputScope="Number">
+                </ctrl:LabeledTextbox>
+                <ctrl:LabeledTextbox Label="Netzwerk Geschw. (MB/s)"
+                                     Margin="3,3,3,3"
+                                     Text="{Binding NetworkSpeed, Mode=TwoWay}"
+                                     InputScope="Number">
+                </ctrl:LabeledTextbox>
+                <ctrl:LabeledTextbox Label="Größe (in Zoll)"
+                                     Margin="3,3,3,3"
+                                     Text="{Binding Size, Mode=TwoWay}"
+                                     InputScope="Number">
+                </ctrl:LabeledTextbox>
+            </WrapPanel>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type modelHardware:AccessPoint}">
+            <WrapPanel Orientation="Vertical" 
+                       FlowDirection="LeftToRight">
+                <ctrl:LabeledTextbox Label="Netzwerk Geschw. (MB/s)"
+                                     Margin="3,3,3,3"
+                                     Text="{Binding NetworkSpeed, Mode=TwoWay}"
+                                     InputScope="Number">
+                </ctrl:LabeledTextbox>
+                <ctrl:LabeledTextbox Label="Maximale Verbindungen"
+                                     Margin="3,3,3,3"
+                                     Text="{Binding MaxConnections, Mode=TwoWay}"
+                                     InputScope="Number">
+                </ctrl:LabeledTextbox>
+            </WrapPanel>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type modelHardware:Router}">
+            <WrapPanel Orientation="Vertical" 
+                       FlowDirection="LeftToRight">
+                <ctrl:LabeledTextbox Label="Netzwerk Geschw. (MB/s)"
+                                     Margin="3,3,3,3"
+                                     Text="{Binding NetworkSpeed, Mode=TwoWay}"
+                                     InputScope="Number">
+                </ctrl:LabeledTextbox>
+                <ctrl:LabeledTextbox Label="Maximale Verbindungen"
+                                     Margin="3,3,3,3"
+                                     Text="{Binding MaxConnections, Mode=TwoWay}"
+                                     InputScope="Number">
+                </ctrl:LabeledTextbox>
+                <ctrl:LabeledTextbox Label="Portanzahl"
+                                     Margin="3,3,3,3"
+                                     Text="{Binding NumberOfPorts, Mode=TwoWay}"
+                                     InputScope="Number">
+                </ctrl:LabeledTextbox>
+            </WrapPanel>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type modelHardware:Switch}">
+            <WrapPanel Orientation="Vertical" 
+                       FlowDirection="LeftToRight">
+                <ctrl:LabeledTextbox Label="Netzwerk Geschw. (MB/s)"
+                                     Margin="3,3,3,3"
+                                     Text="{Binding NetworkSpeed, Mode=TwoWay}"
+                                     InputScope="Number">
+                </ctrl:LabeledTextbox>
+                <ctrl:LabeledTextbox Label="Maximale Verbindungen"
+                                     Margin="3,3,3,3"
+                                     Text="{Binding MaxConnections, Mode=TwoWay}"
+                                     InputScope="Number">
+                </ctrl:LabeledTextbox>
+                <ctrl:LabeledTextbox Label="Portanzahl"
+                                     Margin="3,3,3,3"
+                                     Text="{Binding NumberOfPorts, Mode=TwoWay}"
+                                     InputScope="Number">
+                </ctrl:LabeledTextbox>
+            </WrapPanel>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type modelHardware:Drucker}">
+            <WrapPanel Orientation="Vertical" 
+                       FlowDirection="LeftToRight">
+                <ctrl:LabeledTextbox Label="Papier-Kapazität"
+                                     Margin="3,3,3,3"
+                                     Text="{Binding PaperCapacity, Mode=TwoWay}"
+                                     InputScope="Number">
+                </ctrl:LabeledTextbox>
+                <CheckBox IsChecked="{Binding ColorJN}"
+                          Margin="3,3,3,3">Farbe unterstützt</CheckBox>
             </WrapPanel>
         </DataTemplate>
     </UserControl.Resources>
@@ -47,36 +175,92 @@
         <StackPanel Orientation="Vertical" 
                     x:Name="ContentPanel">
             <Label Margin="3,3,3,3">Allgemein</Label>
-            <Rectangle Fill="Black"
+            <Rectangle Fill="LightSlateGray"
                        Height="1"
                        Margin="3,0,3,0"
                        StrokeThickness="5"
                        Width="{Binding ElementName=ContentPanel, Path=ActualWidth}"/>
-            
-            <WrapPanel Orientation="Vertical"
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                
+                <WrapPanel Orientation="Vertical"
                        FlowDirection="LeftToRight"
+                           Grid.Column="0"
                        HorizontalAlignment="Left"
                        Margin="3,3,3,3">
-                <ctrl:LabeledTextbox Label="Bezeichnung"
+                    <ctrl:LabeledTextbox Label="Bezeichnung"
                                      Margin="3,3,3,3"
                                      Text="{Binding Component.Name, Mode=TwoWay}">
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="LostFocus">
-                            <command:EventToCommand Command="{Binding TextChangedCommand}"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </ctrl:LabeledTextbox>
-                <ctrl:LabeledTextbox Label="Beschreibung"
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="LostFocus">
+                                <command:EventToCommand Command="{Binding TextChangedCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ctrl:LabeledTextbox>
+                    <ctrl:LabeledTextbox Label="Beschreibung"
                                      Margin="3,3,3,3"
-                                     Text="{Binding Component.Description, Mode=TwoWay}"></ctrl:LabeledTextbox>
-                
-                <ctrl:LabeledDatePicker Label="Beschaffungsdatum"
+                                     Text="{Binding Component.Description, Mode=TwoWay}">
+                    </ctrl:LabeledTextbox>
+
+                    <ctrl:LabeledDatePicker Label="Beschaffungsdatum"
                                         Margin="3,3,3,3"
                                         CurrentDateTime="{Binding Component.AcquisitionDate, Mode=TwoWay}"></ctrl:LabeledDatePicker>
-                <ctrl:LabeledDatePicker Label="Wartungsdatum"
+                    <ctrl:LabeledDatePicker Label="Wartungsdatum"
                                         Margin="3,3,3,3"
                                         CurrentDateTime="{Binding Component.MaintenanceDate, Mode=TwoWay}"></ctrl:LabeledDatePicker>
-            </WrapPanel>
+                </WrapPanel>
+                
+                <Grid Grid.Column="1" Margin="3,3,3,3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Gebäude"
+                       Grid.Column="0"
+                       Grid.Row="0"
+                       Margin="6,6,6,6"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"/>
+                    <ComboBox Grid.Column="1"
+                      x:Name="cmb_Buildings"
+                      Grid.Row="0"
+                      Width="150"
+                      Margin="6,6,6,6"
+                      ItemsSource="{Binding Buildings}"
+                      SelectedItem="{Binding CurrentBuilding}"
+                      HorizontalAlignment="Right">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <command:EventToCommand Command="{Binding BuildingSelectionChangedCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ComboBox>
+
+                    <TextBlock Text="Raum"
+                       x:Name="cmb_Rooms"
+                       Grid.Column="0"
+                       Grid.Row="1"
+                       Margin="6,6,6,6"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"/>
+                    <ComboBox Grid.Column="1"
+                      Grid.Row="1"
+                      Width="150"
+                      Margin="6,6,6,6"
+                      SelectedItem="{Binding CurrentRoom}"
+                      ItemsSource="{Binding Rooms}"
+                      HorizontalAlignment="Right"/>
+                </Grid>
+            </Grid>
 
             <Rectangle Fill="Transparent" 
                        Height="15"/>
@@ -85,7 +269,7 @@
         <StackPanel Orientation="Vertical"
                     Grid.Row="1">
             <Label Margin="3,3,3,3">Spezifisch</Label>
-            <Rectangle Fill="Black"
+            <Rectangle Fill="LightSlateGray"
                        Height="1"
                        Margin="3,0,3,0"
                        StrokeThickness="5"
@@ -97,3 +281,14 @@
     </Grid>
 </UserControl>
 
+
+    
+
+
+    
+
+
+    
+
+
+    

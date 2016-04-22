@@ -6,24 +6,22 @@
              xmlns:local="clr-namespace:Projekt_HKP.GUI.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="30" d:DesignWidth="300">
-    <Grid>
-        <Grid x:Name="Root">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
+    <Grid x:Name="Root">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
 
-            <TextBlock Text="{Binding Label}"
+        <TextBlock Text="{Binding Label}"
                        Grid.Column="0"
                        Margin="3,3,3,3"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Center"/>
-            <DatePicker Grid.Column="1"
+        <DatePicker Grid.Column="1"
                         SelectedDate="{Binding CurrentDateTime}"
                         Width="150"
                         Margin="3,3,3,3"
                         HorizontalAlignment="Right"></DatePicker>
-        </Grid>
     </Grid>
 </UserControl>

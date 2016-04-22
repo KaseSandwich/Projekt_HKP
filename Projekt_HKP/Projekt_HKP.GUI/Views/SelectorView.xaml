@@ -3,15 +3,88 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:command="http://www.galasoft.ch/mvvmlight"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="2"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <ListView x:Name="listView" Grid.Row="0"
+        <StackPanel Orientation="Vertical" x:Name="FilterPanel">
+            <Label Margin="3,3,3,3">Filter</Label>
+            <Rectangle Fill="LightSlateGray"
+                       Height="1"
+                       Margin="3,0,3,0"
+                       StrokeThickness="5"
+                       Width="{Binding ElementName=FilterPanel, Path=ActualWidth}"/>
+            <Grid Grid.Row="0" Margin="3,3,3,3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Gebäude"
+                       Grid.Column="0"
+                       Grid.Row="0"
+                       Margin="3,3,3,3"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"/>
+                <ComboBox Grid.Column="1"
+                      x:Name="cmb_Buildings"
+                      Grid.Row="0"
+                      Width="150"
+                      Margin="3,3,3,3"
+                      ItemsSource="{Binding Buildings}"
+                      SelectedItem="{Binding CurrentBuilding}"
+                      HorizontalAlignment="Right">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <command:EventToCommand Command="{Binding BuildingSelectionChangedCommand}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </ComboBox>
+
+                <TextBlock Text="Raum"
+                       x:Name="cmb_Rooms"
+                       Grid.Column="0"
+                       Grid.Row="1"
+                       Margin="3,3,3,3"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"/>
+                <ComboBox Grid.Column="1"
+                      Grid.Row="1"
+                      Width="150"
+                      Margin="3,3,3,3"
+                      SelectedItem="{Binding CurrentRoom}"
+                      ItemsSource="{Binding Rooms}"
+                      HorizontalAlignment="Right"/>
+                <Button Width="30" 
+                        Grid.Column="2"
+                        Grid.Row="1"
+                        Margin="3,3,3,3" 
+                        Foreground="Black" 
+                        Background="Transparent"
+                        HorizontalAlignment="Left"
+                        Command="{Binding ClearFilterCommand}"
+                        FontWeight="Bold"
+                        FontSize="10"
+                        BorderThickness="0">X</Button>
+            </Grid>
+        </StackPanel>
+
+        <ListView x:Name="listView" Grid.Row="2"
+                  Background="Transparent"
+                  BorderThickness="0"
 			Margin="3,3,3,3"
 			ItemsSource="{Binding Components}">
             <ListView.ItemTemplate>
@@ -23,6 +96,7 @@
                         </Grid.ColumnDefinitions>
                         <Button Content="{Binding DisplayMember}" Grid.Column="0"
                             Command="{Binding OpenDetailViewCommand}"
+                                Style="{DynamicResource MyMetroButton}"
                             Margin="3,3,3,3"/>
                         <Button Width="30" 
                                 Grid.Column="1"
@@ -39,18 +113,18 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <StackPanel Grid.Row="1"
+        <StackPanel Grid.Row="3"
 			Orientation="Horizontal">
             <Button Width="100"
 				Height="30"
 				Margin="3,3,3,3"
-				Content="Add"
-                    Command="{Binding AddComponentCommand}"/>
+				Content="Neu"
+                    Command="{Binding AddComponentCommand}" Style="{DynamicResource MyMetroButton}"/>
             <Button Width="100"
 				    Height="30"
 				    Margin="3,3,3,3"
-				    Content="Delete"
-                    Command="{Binding DeleteComponentCommand}"
+				    Content="Löschen"
+                    Command="{Binding DeleteComponentCommand}" Style="{DynamicResource MyMetroButton}"
                     CommandParameter="{Binding ElementName=listView, Path=SelectedItem}"/>
         </StackPanel>
     </Grid>

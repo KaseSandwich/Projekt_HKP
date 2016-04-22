@@ -67,12 +67,11 @@ namespace Projekt_HKP.Lib.DataAccess
         {
             return Company.Buildings.SelectMany(b => b.Rooms).SelectMany(r => r.Components);
         }
-
-        public Room GetRoomFromCompanyByUID(string uid)
-        {          
-                Room currentRoom = Company.Buildings.SelectMany(b => b.Rooms).FirstOrDefault(r => r.UID == uid);
-                return currentRoom;   
-        }
+        
+        public IEnumerable<Room> GetAllRooms()
+        {
+            return Company.Buildings.SelectMany(b => b.Rooms);
+        } 
 
         public HardwareComponent GetComponentByUid(string uid)
         {
@@ -81,12 +80,12 @@ namespace Projekt_HKP.Lib.DataAccess
 
         public IEnumerable<HardwareComponent> GetComponentsOfRoom(string roomUid)
         {
-            throw new NotImplementedException();
+            return GetRoomByUid(roomUid).Components;
         }
 
         public IEnumerable<HardwareComponent> GetComponentsOfBuilding(string buildingUid)
         {
-            throw new NotImplementedException();
+            return GetBuildingByUid(buildingUid).Rooms.SelectMany(r => r.Components);
         }
 
         public IEnumerable<Building> GetAllBuildings()
@@ -96,7 +95,7 @@ namespace Projekt_HKP.Lib.DataAccess
 
         public IEnumerable<Room> GetAllRoomsForBuilding(string buildingUid)
         {
-            return Company.Buildings.FirstOrDefault(b => b.UID == buildingUid)?.Rooms;
+            return GetBuildingByUid(buildingUid)?.Rooms;
         }
 
         public bool SaveAllComponents(string fileName)
@@ -126,33 +125,30 @@ namespace Projekt_HKP.Lib.DataAccess
             }
         }
 
-        public void UpdateComponent(HardwareComponent component)
-        {
-            var uid = component.UID;
-
-            //var room = Company.Buildings.SelectMany(b => b.Rooms).FirstOrDefault(r => r.UID == component.RoomUID);
-            //room.Components.Remove(GetAllComponents().ToList().FirstOrDefault(c => c.UID == uid));
-            //room.Components.Add(component);
-
-        }
-
         public bool DeleteComponent(string uid)
         {
             try
             {
-                foreach(HardwareComponent comp in this.GetAllComponents())
-                {
-                    Room room;
-                    if (comp.UID == uid)
-                         room = GetRoomFromCompanyByUID(comp.RoomUID);
-                }
-
+                var comp = GetComponentByUid(uid);
+                var room = GetRoomByUid(comp.RoomUID);
+                room.Components.Remove(comp);
                 return true;
-            } catch (Exception e)
+            }
+            catch (Exception e)
             {
                 Console.WriteLine(e);
                 return false;
             }
+        }
+
+        public Building GetBuildingByUid(string uid)
+        {
+            return GetAllBuildings().FirstOrDefault(b => b.UID == uid);
+        }
+
+        public Room GetRoomByUid(string uid)
+        {
+            return GetAllRooms().FirstOrDefault(r => r.UID == uid);
         }
     }
 }

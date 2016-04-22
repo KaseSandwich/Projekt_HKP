@@ -15,5 +15,10 @@ namespace Projekt_HKP.Model.Orgaisation
             UID = Guid.NewGuid().ToString("D");
             Rooms = new ObservableCollection<Room>();
         }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

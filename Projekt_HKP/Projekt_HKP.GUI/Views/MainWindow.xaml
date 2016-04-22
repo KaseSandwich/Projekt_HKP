@@ -7,7 +7,7 @@
         xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:views="clr-namespace:Projekt_HKP.GUI.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="650" Width="1100"
+        Title="Komponenten-Pflege" Height="650" Width="1100"
                       Loaded="MainWindow_OnLoaded">
     <DockPanel>
         <Menu DockPanel.Dock="Top">
