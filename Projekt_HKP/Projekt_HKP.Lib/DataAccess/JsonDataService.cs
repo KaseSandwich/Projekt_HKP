@@ -89,6 +89,16 @@ namespace Projekt_HKP.Lib.DataAccess
             throw new NotImplementedException();
         }
 
+        public IEnumerable<Building> GetAllBuildings()
+        {
+            return Company.Buildings;
+        }
+
+        public IEnumerable<Room> GetAllRoomsForBuilding(string buildingUid)
+        {
+            return Company.Buildings.FirstOrDefault(b => b.UID == buildingUid)?.Rooms;
+        }
+
         public bool SaveAllComponents(string fileName)
         {
             try
@@ -140,8 +150,8 @@ namespace Projekt_HKP.Lib.DataAccess
                 return true;
             } catch (Exception e)
             {
-                return false;
                 Console.WriteLine(e);
+                return false;
             }
         }
     }

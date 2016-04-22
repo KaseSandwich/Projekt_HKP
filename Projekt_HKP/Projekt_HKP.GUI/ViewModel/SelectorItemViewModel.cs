@@ -16,14 +16,14 @@ namespace Projekt_HKP.GUI.ViewModel
         public string DisplayMember
         {
             get { return _displayMember; }
-            set { _displayMember = value; }
+            set { _displayMember = value; RaisePropertyChanged();}
         }
 
         private string _uid;
         public string Uid
         {
             get { return _uid; }
-            set { _uid = value; }
+            set { _uid = value; RaisePropertyChanged();}
         }
 
         public RelayCommand OpenDetailViewCommand { get; set; }

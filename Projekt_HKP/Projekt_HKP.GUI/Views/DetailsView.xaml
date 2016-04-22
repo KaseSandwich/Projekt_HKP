@@ -60,6 +60,11 @@
                 <ctrl:LabeledTextbox Label="Bezeichnung"
                                      Margin="3,3,3,3"
                                      Text="{Binding Component.Name, Mode=TwoWay}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="LostFocus">
+                            <command:EventToCommand Command="{Binding TextChangedCommand}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
                 </ctrl:LabeledTextbox>
                 <ctrl:LabeledTextbox Label="Beschreibung"
                                      Margin="3,3,3,3"

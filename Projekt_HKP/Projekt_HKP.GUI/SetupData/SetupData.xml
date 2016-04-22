@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<Company xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <UID>baa764aa-03c8-4732-b141-557cd10069e9</UID>
+  <Name>NewsPaper</Name>
+  <Buildings>
+    <Building>
+      <UID>68258691-9b48-41b9-8617-9bb7b334ebf2</UID>
+      <CompanyUID>baa764aa-03c8-4732-b141-557cd10069e9</CompanyUID>
+      <Name>Verwaltung</Name>
+      <Rooms>
+        <Room>
+          <UID>16f8abdd-d815-4be5-b0a4-f04436bcb2e2</UID>
+          <BuildingUID>68258691-9b48-41b9-8617-9bb7b334ebf2</BuildingUID>
+          <RoomNumber>101</RoomNumber>
+          <Components />
+        </Room>
+        <Room>
+          <UID>33da5da1-e729-4d96-94c8-9063c4c38831</UID>
+          <BuildingUID>68258691-9b48-41b9-8617-9bb7b334ebf2</BuildingUID>
+          <RoomNumber>102</RoomNumber>
+          <Components />
+        </Room>
+        <Room>
+          <UID>6f265ae3-a52d-42d9-a286-83cf4433e20f</UID>
+          <BuildingUID>68258691-9b48-41b9-8617-9bb7b334ebf2</BuildingUID>
+          <RoomNumber>103</RoomNumber>
+          <Components />
+        </Room>
+      </Rooms>
+    </Building>
+    <Building>
+      <UID>051b220b-6296-4e3e-9b0e-c9d4f4401e72</UID>
+      <CompanyUID>baa764aa-03c8-4732-b141-557cd10069e9</CompanyUID>
+      <Name>Vertrieb</Name>
+      <Rooms>
+        <Room>
+          <UID>c444cf0d-d7d0-49fe-82a8-54fbe25cf0b5</UID>
+          <BuildingUID>051b220b-6296-4e3e-9b0e-c9d4f4401e72</BuildingUID>
+          <RoomNumber>201</RoomNumber>
+          <Components />
+        </Room>
+        <Room>
+          <UID>db6b89f3-29d6-44da-83f6-b9a3963d7c4e</UID>
+          <BuildingUID>051b220b-6296-4e3e-9b0e-c9d4f4401e72</BuildingUID>
+          <RoomNumber>202</RoomNumber>
+          <Components />
+        </Room>
+        <Room>
+          <UID>c9a0de3d-319f-4679-8919-35a4d3fe692a</UID>
+          <BuildingUID>051b220b-6296-4e3e-9b0e-c9d4f4401e72</BuildingUID>
+          <RoomNumber>203</RoomNumber>
+          <Components />
+        </Room>
+      </Rooms>
+    </Building>
+    <Building>
+      <UID>b8fedb09-3663-4eaf-83f0-ef34c10718c6</UID>
+      <CompanyUID>baa764aa-03c8-4732-b141-557cd10069e9</CompanyUID>
+      <Name>Textproduktion</Name>
+      <Rooms>
+        <Room>
+          <UID>b715201c-7af5-414f-8025-306fabb5e5b2</UID>
+          <BuildingUID>b8fedb09-3663-4eaf-83f0-ef34c10718c6</BuildingUID>
+          <RoomNumber>301</RoomNumber>
+          <Components />
+        </Room>
+        <Room>
+          <UID>402a897e-2669-466d-ad15-3aed64d8b89e</UID>
+          <BuildingUID>b8fedb09-3663-4eaf-83f0-ef34c10718c6</BuildingUID>
+          <RoomNumber>302</RoomNumber>
+          <Components />
+        </Room>
+        <Room>
+          <UID>deae62e5-3024-49e2-a74d-bb53f091c80b</UID>
+          <BuildingUID>b8fedb09-3663-4eaf-83f0-ef34c10718c6</BuildingUID>
+          <RoomNumber>303</RoomNumber>
+          <Components />
+        </Room>
+      </Rooms>
+    </Building>
+  </Buildings>
+</Company>

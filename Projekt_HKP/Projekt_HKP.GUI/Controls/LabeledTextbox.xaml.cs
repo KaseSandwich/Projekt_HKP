@@ -59,9 +59,9 @@ namespace Projekt_HKP.GUI.Controls
             set { SetValue(TextProperty, value); }
         }
 
-        private void TextBoxBase_OnTextChanged(object sender, Projekt_HKP.GUI.Events.TextChangedEventArgs e)
+        private void TextBoxBase_OnTextChanged(object sender, TextChangedEventArgs e)
         {
-            TextChanged?.Invoke(this, new Projekt_HKP.GUI.Events.TextChangedEventArgs() { NewText = Text});
+            TextChanged?.Invoke(this, new Projekt_HKP.GUI.Events.TextChangedEventArgs() { NewText = Text });
         }
     }
 }

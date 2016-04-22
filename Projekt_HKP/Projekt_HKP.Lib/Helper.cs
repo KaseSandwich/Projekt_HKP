@@ -18,8 +18,23 @@ namespace Projekt_HKP.Lib
                 case "Router":
                     component = new Router();
                     break;
+                case "Switch":
+                    component = new Switch();
+                    break;
+                case "AccessPoint":
+                    component = new AccessPoint();
+                    break;
                 case "DesktopPc":
                     component = new DesktopPc();
+                    break;
+                case "Notebook":
+                    component = new Notebook();
+                    break;
+                case "Server":
+                    component = new Server();
+                    break;
+                case "Drucker":
+                    component = new Drucker();
                     break;
             }
 

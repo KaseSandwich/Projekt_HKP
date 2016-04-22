@@ -26,7 +26,7 @@ namespace Projekt_HKP.GUI
             base.OnStartup(e);
             var bootstrapper = new Bootstrapper();
             DependencyContainer = bootstrapper.BootStrap();
-            DataService = DependencyContainer.Resolve<IDataService>();
+            DataService = new JsonDataService($"{Environment.CurrentDirectory}\\SetupData\\SetupData.json");
 
             var mainWindow = DependencyContainer.Resolve<MainWindow>();
             mainWindow.Show();

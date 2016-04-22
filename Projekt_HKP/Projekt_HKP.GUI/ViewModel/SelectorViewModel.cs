@@ -5,7 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
 using Projekt_HKP.GUI.Common;
+using Projekt_HKP.GUI.Events;
 using Projekt_HKP.GUI.Views;
 using Projekt_HKP.Lib;
 using Projekt_HKP.Lib.DataAccess;
@@ -27,6 +29,14 @@ namespace Projekt_HKP.GUI.ViewModel
             DataService = App.DataService;
             Components = new ObservableCollection<SelectorItemViewModel>();
             AddComponentCommand = new RelayCommand(AddComponentExecute);
+            Messenger.Default.Register<ComponentNameChangedMessage>(this, ComponentNameChangedHandler);
+        }
+
+        private void ComponentNameChangedHandler(ComponentNameChangedMessage obj)
+        {
+            var item = Components.FirstOrDefault(c => c.Uid == obj.Uid);
+            if (item != null)
+                item.DisplayMember = obj.NewName;
         }
 
         private void AddComponentExecute(object obj)
@@ -46,8 +56,11 @@ namespace Projekt_HKP.GUI.ViewModel
         {
             Components.Clear();
 
-            var comps = DataService.GetAllComponents();
-            foreach(var comp in comps)
+            var comps = App.DataService?.GetAllComponents();
+            if (comps == null)
+                return;
+
+            foreach (var comp in comps)
                 Components.Add(new SelectorItemViewModel(comp.UID, comp.Name));
         }
     }

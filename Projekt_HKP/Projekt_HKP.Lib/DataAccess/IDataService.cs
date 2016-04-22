@@ -19,6 +19,8 @@ namespace Projekt_HKP.Lib.DataAccess
         HardwareComponent GetComponentByUid(string uid);
         IEnumerable<HardwareComponent> GetComponentsOfRoom(string roomUid);
         IEnumerable<HardwareComponent> GetComponentsOfBuilding(string buildingUid);
+        IEnumerable<Building> GetAllBuildings();
+        IEnumerable<Room> GetAllRoomsForBuilding(string buildingUid);
 
         //Update
         bool SaveAllComponents(string fileName);
@@ -29,3 +31,4 @@ namespace Projekt_HKP.Lib.DataAccess
         
     }
 }
+

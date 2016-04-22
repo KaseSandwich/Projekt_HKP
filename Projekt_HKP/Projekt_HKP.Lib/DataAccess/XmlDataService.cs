@@ -50,6 +50,16 @@ namespace Projekt_HKP.Lib.DataAccess
             throw new NotImplementedException();
         }
 
+        public IEnumerable<Building> GetAllBuildings()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Room> GetAllRoomsForBuilding(string buildingUid)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool SaveAllComponents(string fileName)
         {
             throw new NotImplementedException();
