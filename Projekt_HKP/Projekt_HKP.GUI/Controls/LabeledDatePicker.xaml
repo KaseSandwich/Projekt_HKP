@@ -20,6 +20,7 @@
                        HorizontalAlignment="Left"
                        VerticalAlignment="Center"/>
             <DatePicker Grid.Column="1"
+                        SelectedDate="{Binding CurrentDateTime}"
                         Width="150"
                         Margin="3,3,3,3"
                         HorizontalAlignment="Right"></DatePicker>

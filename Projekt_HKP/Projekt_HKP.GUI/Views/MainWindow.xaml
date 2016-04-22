@@ -9,18 +9,30 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="650" Width="1100"
                       Loaded="MainWindow_OnLoaded">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" MaxWidth="400"/>
-            <ColumnDefinition Width="3*"/>
-        </Grid.ColumnDefinitions>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_Datei">
+                <MenuItem Header="Datei _einlesen" 
+                          Command="{Binding ReadFileCommand}"/>
+                <MenuItem Header="Datei _speichern" 
+                          Command="{Binding SaveFileCommand}"/>
+            </MenuItem>
+        </Menu>
+        
+        <Grid DockPanel.Dock="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" MaxWidth="400"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
 
-        <views:SelectorView Grid.Column="0"
+            <views:SelectorView Grid.Column="0"
                             DataContext="{Binding SelectorViewModel}"
                             Margin="6,6,3,6"></views:SelectorView>
 
-        <views:DetailsView Grid.Column="1"
+            <views:DetailsView Grid.Column="1"
+                           DataContext="{Binding DetailsViewModel}"
                            Margin="6,6,3,6"></views:DetailsView>
-    </Grid>
+        </Grid>
+    </DockPanel>
 </controls:MetroWindow>
 

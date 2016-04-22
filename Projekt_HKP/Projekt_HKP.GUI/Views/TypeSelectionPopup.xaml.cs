@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
 using Projekt_HKP.Lib.DataAccess;
 
 namespace Projekt_HKP.GUI.Views
@@ -20,10 +21,11 @@ namespace Projekt_HKP.GUI.Views
     /// <summary>
     /// Interaction logic for TypeSelectionPopup.xaml
     /// </summary>
-    public partial class TypeSelectionPopup : Window
+    public partial class TypeSelectionPopup : MetroWindow
     {
-        public ObservableCollection<string> Types { get; set; }
+        private ObservableCollection<string> Types { get; set; }
         private readonly ITypeProvider _typeProvider;
+        public string Result { get; set; }
 
         public TypeSelectionPopup(ITypeProvider typeProvider)
         {
@@ -36,7 +38,20 @@ namespace Projekt_HKP.GUI.Views
             foreach(var type in typesTemp)
                 Types.Add(type);
 
+            ComboBox.ItemsSource = Types;
+        }
 
+        private void Btn_Accept_OnClick(object sender, RoutedEventArgs e)
+        {
+            Result = (string) ComboBox.SelectedItem;
+            this.DialogResult = true;
+            this.Close();
+        }
+
+        private void Btn_Cancel_OnClick(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = false;
+            this.Close();
         }
     }
 }

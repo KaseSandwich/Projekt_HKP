@@ -17,7 +17,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Button Content="{Binding DisplayMember}"
-                            Command="{Binding OpenDetailsViewCommand}"
+                            Command="{Binding OpenDetailViewCommand}"
                             Margin="3,3,3,3"/>
                 </DataTemplate>
             </ListView.ItemTemplate>

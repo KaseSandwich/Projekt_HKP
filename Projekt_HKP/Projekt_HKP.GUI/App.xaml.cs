@@ -9,6 +9,7 @@ using System.Windows.Controls.Primitives;
 using Autofac;
 using Projekt_HKP.GUI.Startup;
 using Projekt_HKP.GUI.Views;
+using Projekt_HKP.Lib.DataAccess;
 
 namespace Projekt_HKP.GUI
 {
@@ -17,13 +18,17 @@ namespace Projekt_HKP.GUI
     /// </summary>
     public partial class App : Application
     {
+        public static IContainer DependencyContainer { get; private set; }
+        public static IDataService DataService { get; set; }
+
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
             var bootstrapper = new Bootstrapper();
-            var container = bootstrapper.BootStrap();
+            DependencyContainer = bootstrapper.BootStrap();
+            DataService = DependencyContainer.Resolve<IDataService>();
 
-            var mainWindow = container.Resolve<MainWindow>();
+            var mainWindow = DependencyContainer.Resolve<MainWindow>();
             mainWindow.Show();
         }
     }

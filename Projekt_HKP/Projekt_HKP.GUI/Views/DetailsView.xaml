@@ -10,22 +10,26 @@
              Background="White"
              d:DesignHeight="500" d:DesignWidth="600">
     <UserControl.Resources>
-        <DataTemplate DataType="modelHardware:DesktopPc">
+        <DataTemplate DataType="{x:Type modelHardware:DesktopPc}">
             <WrapPanel Orientation="Vertical" 
                        FlowDirection="LeftToRight">
                 <ctrl:LabeledTextbox Label="CPU-Clock"
+                                     Margin="3,3,3,3"
                                      Text="{Binding CpuClockSpeed, Mode=TwoWay}"
                                      InputScope="Number">
                 </ctrl:LabeledTextbox>
                 <ctrl:LabeledTextbox Label="RAM"
+                                     Margin="3,3,3,3"
                                      Text="{Binding RamAmount, Mode=TwoWay}"
                                      InputScope="Number">
                 </ctrl:LabeledTextbox>
                 <ctrl:LabeledTextbox Label="Festplattengröße"
+                                     Margin="3,3,3,3"
                                      Text="{Binding HardDiskSpace, Mode=TwoWay}"
                                      InputScope="Number">
                 </ctrl:LabeledTextbox>
                 <ctrl:LabeledTextbox Label="Netzwerk Geschwindigkeit"
+                                     Margin="3,3,3,3"
                                      Text="{Binding NetworkSpeed, Mode=TwoWay}"
                                      InputScope="Number">
                 </ctrl:LabeledTextbox>
@@ -34,7 +38,7 @@
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         
@@ -53,32 +57,35 @@
                        Margin="3,3,3,3">
                 <ctrl:LabeledTextbox Label="Bezeichnung"
                                      Margin="3,3,3,3"
-                                     Text="{Binding Name, Mode=TwoWay}"></ctrl:LabeledTextbox>
+                                     Text="{Binding Component.Name, Mode=TwoWay}"></ctrl:LabeledTextbox>
                 <ctrl:LabeledTextbox Label="Beschreibung"
                                      Margin="3,3,3,3"
-                                     Text="{Binding Description, Mode=TwoWay}"></ctrl:LabeledTextbox>
+                                     Text="{Binding Component.Description, Mode=TwoWay}"></ctrl:LabeledTextbox>
                 
                 <ctrl:LabeledDatePicker Label="Beschaffungsdatum"
                                         Margin="3,3,3,3"
-                                        CurrentDateTime="{Binding AcquisitionDate, Mode=TwoWay}"></ctrl:LabeledDatePicker>
+                                        CurrentDateTime="{Binding Component.AcquisitionDate, Mode=TwoWay}"></ctrl:LabeledDatePicker>
                 <ctrl:LabeledDatePicker Label="Wartungsdatum"
                                         Margin="3,3,3,3"
-                                        CurrentDateTime="{Binding MaintenanceDate, Mode=TwoWay}"></ctrl:LabeledDatePicker>
+                                        CurrentDateTime="{Binding Component.MaintenanceDate, Mode=TwoWay}"></ctrl:LabeledDatePicker>
             </WrapPanel>
-            
+
             <Rectangle Fill="Transparent" 
                        Height="15"/>
-            
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical"
+                    Grid.Row="1">
             <Label Margin="3,3,3,3">Spezifisch</Label>
             <Rectangle Fill="Black"
                        Height="1"
                        Margin="3,0,3,0"
                        StrokeThickness="5"
                        Width="{Binding ElementName=ContentPanel, Path=ActualWidth}"/>
+
+            <ContentControl Content="{Binding Component}">
+            </ContentControl>
         </StackPanel>
-        
-        <ContentControl Content="{Binding Component}"></ContentControl>
-        
     </Grid>
 </UserControl>
 

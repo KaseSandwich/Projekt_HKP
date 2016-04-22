@@ -31,9 +31,19 @@ namespace Projekt_HKP.Lib.DataAccess
             Company = JsonConvert.DeserializeObject<Company>(jsonString, settings);
         }
 
+        public JsonDataService(Company company)
+        {
+            Company = company;
+        }
+
         public bool AddComponent(HardwareComponent component)
         {
             throw new NotImplementedException();
+        }
+
+        public Company GetCompany()
+        {
+            return Company;
         }
 
         public IEnumerable<HardwareComponent> GetAllComponents()
@@ -43,7 +53,7 @@ namespace Projekt_HKP.Lib.DataAccess
 
         public HardwareComponent GetComponentByUid(string uid)
         {
-            throw new NotImplementedException();
+            return GetAllComponents().FirstOrDefault(c => c.UID == uid);
         }
 
         public IEnumerable<HardwareComponent> GetComponentsOfRoom(string roomUid)
@@ -56,9 +66,41 @@ namespace Projekt_HKP.Lib.DataAccess
             throw new NotImplementedException();
         }
 
-        public bool SaveAllComponents()
+        public bool SaveAllComponents(string fileName)
         {
-            throw new NotImplementedException();
+            try
+            {
+                JsonSerializerSettings settings = new JsonSerializerSettings
+                {
+                    TypeNameHandling = TypeNameHandling.All
+                };
+
+                var jsonString = JsonConvert.SerializeObject(Company, settings);
+
+                if (File.Exists(fileName))
+                    File.Delete(fileName);
+
+                using (var writer = new StreamWriter(fileName))
+                {
+                    writer.Write(jsonString);
+                }
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                return false;
+            }
+        }
+
+        public void UpdateComponent(HardwareComponent component)
+        {
+            var uid = component.UID;
+
+            //var room = Company.Buildings.SelectMany(b => b.Rooms).FirstOrDefault(r => r.UID == component.RoomUID);
+            //room.Components.Remove(GetAllComponents().ToList().FirstOrDefault(c => c.UID == uid));
+            //room.Components.Add(component);
+
         }
 
         public bool DeleteComponent(string uid)

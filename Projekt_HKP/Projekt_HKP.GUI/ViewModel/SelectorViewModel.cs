@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Projekt_HKP.GUI.Common;
 using Projekt_HKP.GUI.Views;
+using Projekt_HKP.Lib;
 using Projekt_HKP.Lib.DataAccess;
 using Projekt_HKP.Model.Hardware;
 
@@ -20,9 +21,9 @@ namespace Projekt_HKP.GUI.ViewModel
         public RelayCommand AddComponentCommand { get; set; }
         public RelayCommand DeleteComponentCommand { get; set; }
 
-        public SelectorViewModel(IDataService dataService)
+        public SelectorViewModel()
         {
-            DataService = dataService;
+            DataService = App.DataService;
             Components = new ObservableCollection<SelectorItemViewModel>();
             AddComponentCommand = new RelayCommand(AddComponentExecute);
             DeleteComponentCommand = new RelayCommand(DeleteComponentExecute);
@@ -36,7 +37,13 @@ namespace Projekt_HKP.GUI.ViewModel
         private void AddComponentExecute(object obj)
         {
             var dlg = new TypeSelectionPopup(new DefaultTypeProvider());
-            dlg.ShowDialog();
+            var result = dlg.ShowDialog();
+
+            if (result.Value)
+            {
+                var comp = Helper.CreateComponentFromTypeString(dlg.Result);
+                Components.Add(new SelectorItemViewModel(comp.UID, comp.Name??"{ Leer }"));
+            }
         }
 
         public void Load()

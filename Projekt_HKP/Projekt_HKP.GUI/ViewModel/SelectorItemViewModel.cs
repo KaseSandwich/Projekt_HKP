@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using GalaSoft.MvvmLight.Messaging;
 using Projekt_HKP.GUI.Common;
+using Projekt_HKP.GUI.Events;
 
 namespace Projekt_HKP.GUI.ViewModel
 {
@@ -35,7 +37,7 @@ namespace Projekt_HKP.GUI.ViewModel
 
         private void OpenDetailViewExecute(object obj)
         {
-            MessageBox.Show($"ID {Uid}");
+            Messenger.Default.Send<OpenDetailsMessage>(new OpenDetailsMessage() {Uid = Uid});
         }
     }
 }
