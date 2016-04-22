@@ -46,7 +46,7 @@ namespace Projekt_HKP.Lib.DataAccess
             throw new NotImplementedException();
         }
 
-        public IEnumerable<HardwareComponent> GetComponentsOfRoom(int roomNumber)
+        public IEnumerable<HardwareComponent> GetComponentsOfRoom(string roomUid)
         {
             throw new NotImplementedException();
         }

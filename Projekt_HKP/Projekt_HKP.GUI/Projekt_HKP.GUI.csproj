@@ -84,6 +84,9 @@
     <Compile Include="Views\SelectorView.xaml.cs">
       <DependentUpon>SelectorView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\TypeSelectionPopup.xaml.cs">
+      <DependentUpon>TypeSelectionPopup.xaml</DependentUpon>
+    </Compile>
     <Page Include="Controls\LabeledDatePicker.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -115,6 +118,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\SelectorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TypeSelectionPopup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

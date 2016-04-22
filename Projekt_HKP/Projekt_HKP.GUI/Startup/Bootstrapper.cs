@@ -18,7 +18,8 @@ namespace Projekt_HKP.GUI.Startup
             var builder = new ContainerBuilder();
 
             // Register Dependencies
-            builder.Register(j => new JsonDataService(@"D:\Projects\GitHub\Projekt_HKP\Projekt_HKP\Projekt_HKP.Tests\DebugTestJson.json")).As<IDataService>();
+            builder.Register(j => new JsonDataService(@"C:\Users\Marco\Source\Repos\Projekt_HKP\Projekt_HKP\Projekt_HKP.Tests\DebugTestJson.json")).As<IDataService>();
+            builder.RegisterType<DefaultTypeProvider>().As<ITypeProvider>();
             builder.RegisterType<SelectorViewModel>().AsSelf();
             builder.RegisterType<DetailsViewModel>().AsSelf();
             builder.RegisterType<MainViewModel>().AsSelf();

@@ -18,15 +18,15 @@
                                      InputScope="Number">
                 </ctrl:LabeledTextbox>
                 <ctrl:LabeledTextbox Label="RAM"
-                                     Text="{Binding CpuClockSpeed, Mode=TwoWay}"
+                                     Text="{Binding RamAmount, Mode=TwoWay}"
                                      InputScope="Number">
                 </ctrl:LabeledTextbox>
                 <ctrl:LabeledTextbox Label="Festplattengröße"
-                                     Text="{Binding CpuClockSpeed, Mode=TwoWay}"
+                                     Text="{Binding HardDiskSpace, Mode=TwoWay}"
                                      InputScope="Number">
                 </ctrl:LabeledTextbox>
                 <ctrl:LabeledTextbox Label="Netzwerk Geschwindigkeit"
-                                     Text="{Binding CpuClockSpeed, Mode=TwoWay}"
+                                     Text="{Binding NetworkSpeed, Mode=TwoWay}"
                                      InputScope="Number">
                 </ctrl:LabeledTextbox>
             </WrapPanel>
@@ -57,6 +57,7 @@
                 <ctrl:LabeledTextbox Label="Beschreibung"
                                      Margin="3,3,3,3"
                                      Text="{Binding Description, Mode=TwoWay}"></ctrl:LabeledTextbox>
+                
                 <ctrl:LabeledDatePicker Label="Beschaffungsdatum"
                                         Margin="3,3,3,3"
                                         CurrentDateTime="{Binding AcquisitionDate, Mode=TwoWay}"></ctrl:LabeledDatePicker>

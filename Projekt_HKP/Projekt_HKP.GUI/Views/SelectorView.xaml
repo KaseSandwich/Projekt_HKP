@@ -17,7 +17,8 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Button Content="{Binding DisplayMember}"
-                            Command="{Binding OpenDetailsViewCommand}"/>
+                            Command="{Binding OpenDetailsViewCommand}"
+                            Margin="3,3,3,3"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
@@ -27,11 +28,13 @@
             <Button Width="100"
 				Height="30"
 				Margin="3,3,3,3"
-				Content="Add"/>
+				Content="Add"
+                    Command="{Binding AddComponentCommand}"/>
             <Button Width="100"
 				Height="30"
 				Margin="3,3,3,3"
-				Content="Delete"/>
+				Content="Delete"
+                Command="{Binding DeleteComponentCommand}"/>
         </StackPanel>
     </Grid>
 </UserControl>

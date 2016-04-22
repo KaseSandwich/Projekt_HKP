@@ -44,7 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataAccess\DefaultTypeProvider.cs" />
     <Compile Include="DataAccess\IDataService.cs" />
+    <Compile Include="DataAccess\ITypeProvider.cs" />
     <Compile Include="DataAccess\JsonDataService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
