@@ -91,7 +91,10 @@
       <DependentUpon>LabeledTextbox.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converter\DateTimeToStringConverter.cs" />
+    <Compile Include="Events\ComponentDeletedMessage.cs" />
+    <Compile Include="Events\ComponentNameChangedMessage.cs" />
     <Compile Include="Events\OpenDetailsMessage.cs" />
+    <Compile Include="Events\TextChangedEventArgs.cs" />
     <Compile Include="ViewModel\DetailsViewModel.cs" />
     <Compile Include="ViewModel\SelectorItemViewModel.cs" />
     <Compile Include="ViewModel\SelectorViewModel.cs" />

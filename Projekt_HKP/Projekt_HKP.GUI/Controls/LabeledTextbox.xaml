@@ -20,6 +20,7 @@
         <TextBox Text="{Binding Text}"
                  Grid.Column="1"
                  HorizontalAlignment="Left"
+                 TextChanged="TextBoxBase_OnTextChanged"
                  Width="150"
                  Margin="3,3,3,3"/>
     </Grid>

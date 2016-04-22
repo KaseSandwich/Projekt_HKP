@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
@@ -28,6 +29,14 @@ namespace Projekt_HKP.GUI.ViewModel
             ReadFileCommand = new RelayCommand(ReadFileExecute);
             SaveFileCommand = new RelayCommand(SaveFileExecute);
             Messenger.Default.Register<OpenDetailsMessage>(this, OpenDetailsHandler);
+            Messenger.Default.Register<ComponentDeletedMessage>(this, ComponentDeletedHandler);
+        }
+
+        private void ComponentDeletedHandler(ComponentDeletedMessage obj)
+        {
+            DetailsViewModel = null;
+            SelectorViewModel.Components.Remove(SelectorViewModel.Components.FirstOrDefault(c => c.Uid == obj.Uid));
+            App.DataService.DeleteComponent(obj.Uid);
         }
 
         private void SaveFileExecute(object obj)
@@ -84,7 +93,6 @@ namespace Projekt_HKP.GUI.ViewModel
         
         private void OpenDetailsHandler(OpenDetailsMessage obj)
         {
-            var dataservice = App.DataService;
             DetailsViewModel vm = new DetailsViewModel();
             vm.Load(obj.Uid);
             DetailsViewModel = vm;

@@ -16,9 +16,25 @@
 			ItemsSource="{Binding Components}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Button Content="{Binding DisplayMember}"
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Content="{Binding DisplayMember}" Grid.Column="0"
                             Command="{Binding OpenDetailViewCommand}"
                             Margin="3,3,3,3"/>
+                        <Button Width="30" 
+                                Grid.Column="1"
+                                Margin="3,3,3,3" 
+                                Foreground="Red" 
+                                Background="Transparent"
+                                HorizontalAlignment="Left"
+                                Command="{Binding DeleteCommand}"
+                                FontWeight="Bold"
+                                FontSize="22"
+                                BorderThickness="0">-</Button>
+                    </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
@@ -31,10 +47,11 @@
 				Content="Add"
                     Command="{Binding AddComponentCommand}"/>
             <Button Width="100"
-				Height="30"
-				Margin="3,3,3,3"
-				Content="Delete"
-                Command="{Binding DeleteComponentCommand}"/>
+				    Height="30"
+				    Margin="3,3,3,3"
+				    Content="Delete"
+                    Command="{Binding DeleteComponentCommand}"
+                    CommandParameter="{Binding ElementName=listView, Path=SelectedItem}"/>
         </StackPanel>
     </Grid>
 </UserControl>

@@ -6,6 +6,8 @@
              xmlns:ctrl="clr-namespace:Projekt_HKP.GUI.Controls"
              xmlns:local="clr-namespace:Projekt_HKP.GUI.Views"
              xmlns:modelHardware="clr-namespace:Projekt_HKP.Model.Hardware.Implementations;assembly=Projekt_HKP.Model"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:command="http://www.galasoft.ch/mvvmlight"
              mc:Ignorable="d" 
              Background="White"
              d:DesignHeight="500" d:DesignWidth="600">
@@ -57,7 +59,8 @@
                        Margin="3,3,3,3">
                 <ctrl:LabeledTextbox Label="Bezeichnung"
                                      Margin="3,3,3,3"
-                                     Text="{Binding Component.Name, Mode=TwoWay}"></ctrl:LabeledTextbox>
+                                     Text="{Binding Component.Name, Mode=TwoWay}">
+                </ctrl:LabeledTextbox>
                 <ctrl:LabeledTextbox Label="Beschreibung"
                                      Margin="3,3,3,3"
                                      Text="{Binding Component.Description, Mode=TwoWay}"></ctrl:LabeledTextbox>

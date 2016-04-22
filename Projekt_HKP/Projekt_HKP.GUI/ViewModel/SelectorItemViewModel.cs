@@ -27,12 +27,19 @@ namespace Projekt_HKP.GUI.ViewModel
         }
 
         public RelayCommand OpenDetailViewCommand { get; set; }
+        public RelayCommand DeleteCommand { get; set; }
 
         public SelectorItemViewModel(string uid, string displayMember)
         {
             Uid = uid;
             DisplayMember = displayMember;
             OpenDetailViewCommand = new RelayCommand(OpenDetailViewExecute);
+            DeleteCommand = new RelayCommand(DeleteExecute);
+        }
+
+        private void DeleteExecute(object obj)
+        {
+            Messenger.Default.Send<ComponentDeletedMessage>(new ComponentDeletedMessage() {Uid = Uid});
         }
 
         private void OpenDetailViewExecute(object obj)

@@ -20,6 +20,9 @@ namespace Projekt_HKP.GUI.Controls
     /// </summary>
     public partial class LabeledTextbox : UserControl
     {
+        public delegate void TextChangedHandler(object sender, Projekt_HKP.GUI.Events.TextChangedEventArgs e);
+        public event TextChangedHandler TextChanged;
+
         public static readonly DependencyProperty LabelProperty = DependencyProperty
         .Register("Label",
                 typeof(string),
@@ -31,12 +34,7 @@ namespace Projekt_HKP.GUI.Controls
                     typeof(string),
                     typeof(LabeledTextbox),
                     new FrameworkPropertyMetadata("", FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
-
-        //public static readonly DependencyProperty InputScopeProperty = DependencyProperty
-        //.Register("InputScope",
-        //        typeof(InputScope),
-        //        typeof(LabeledTextbox));
-
+        
         public LabeledTextbox()
         {
             InitializeComponent();
@@ -59,6 +57,11 @@ namespace Projekt_HKP.GUI.Controls
         {
             get { return (string)GetValue(TextProperty); }
             set { SetValue(TextProperty, value); }
+        }
+
+        private void TextBoxBase_OnTextChanged(object sender, Projekt_HKP.GUI.Events.TextChangedEventArgs e)
+        {
+            TextChanged?.Invoke(this, new Projekt_HKP.GUI.Events.TextChangedEventArgs() { NewText = Text});
         }
     }
 }

@@ -38,16 +38,24 @@ namespace Projekt_HKP.Lib.DataAccess
 
         public bool AddComponent(HardwareComponent component)
         {
-            try{
-                Room currentRoom = Company.Buildings.SelectMany(b => b.Rooms).FirstOrDefault(r => r.UID == component.RoomUID);
-                currentRoom.Components.Add(component);
-                return true;
-            } catch(Exception e)
+            try
             {
-                Console.WriteLine(e);
+                if (String.IsNullOrEmpty(component.RoomUID))
+                {
+                    var room = Company.Buildings[0]?.Rooms[0];
+                    if (room != null)
+                    {
+                        component.RoomUID = room.UID;
+                        room.Components.Add(component);
+                    }
+                }
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
                 return false;
             }
-
         }
 
         public Company GetCompany()
