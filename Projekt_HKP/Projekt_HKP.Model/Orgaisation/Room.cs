@@ -4,6 +4,7 @@ using Projekt_HKP.Model.Hardware;
 
 namespace Projekt_HKP.Model.Orgaisation
 {
+    [Serializable]
     public class Room
     {
         public string UID { get; set; }

@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 
 namespace Projekt_HKP.Model.Orgaisation
 {
+    [Serializable]
     public class Building
     {
         public string UID { get; set; }

@@ -11,7 +11,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projekt_HKP.Model", "Projek
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projekt_HKP.Tests", "Projekt_HKP.Tests\Projekt_HKP.Tests.csproj", "{EF2C9148-A66D-40AC-83C3-C59A1735242E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsole", "TestConsole\TestConsole.csproj", "{D7A47E1F-9C5C-45AA-B627-C5AC5F893A17}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dokumente", "Dokumente", "{36E4EC3E-2145-4C5B-B5E9-34C44F2F48ED}"
+	ProjectSection(SolutionItems) = preProject
+		C:\Users\MH\Downloads\Anforderungen-Umsetzungsplan.pdf = C:\Users\MH\Downloads\Anforderungen-Umsetzungsplan.pdf
+		C:\Users\MH\Downloads\HardwareUML.pdf = C:\Users\MH\Downloads\HardwareUML.pdf
+		C:\Users\MH\Downloads\Testkriterien.pdf = C:\Users\MH\Downloads\Testkriterien.pdf
+		C:\Users\MH\Downloads\UseCaseDiagramm.pdf = C:\Users\MH\Downloads\UseCaseDiagramm.pdf
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +41,6 @@ Global
 		{EF2C9148-A66D-40AC-83C3-C59A1735242E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF2C9148-A66D-40AC-83C3-C59A1735242E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF2C9148-A66D-40AC-83C3-C59A1735242E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D7A47E1F-9C5C-45AA-B627-C5AC5F893A17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D7A47E1F-9C5C-45AA-B627-C5AC5F893A17}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D7A47E1F-9C5C-45AA-B627-C5AC5F893A17}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D7A47E1F-9C5C-45AA-B627-C5AC5F893A17}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

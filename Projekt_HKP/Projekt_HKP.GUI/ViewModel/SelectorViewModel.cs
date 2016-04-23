@@ -139,7 +139,10 @@ namespace Projekt_HKP.GUI.ViewModel
             {
                 var comp = Helper.CreateComponentFromTypeString(dlg.Result);
                 App.DataService.AddComponent(comp);
-                Components.Add(new SelectorItemViewModel(comp.UID, comp.Name??"{ Leer }"));
+                var item = new SelectorItemViewModel(comp.UID, comp.Name ?? "{ Leer }");
+                Components.Add(item);
+                CurrentItem = item;
+                Messenger.Default.Send<OpenDetailsMessage>(new OpenDetailsMessage() { Uid = item.Uid });
             }
         }
 

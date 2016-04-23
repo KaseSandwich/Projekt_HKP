@@ -1,7 +1,13 @@
 ﻿using System;
+using System.Xml.Serialization;
+using Projekt_HKP.Model.Hardware.Implementations;
 
 namespace Projekt_HKP.Model.Hardware
 {
+    [Serializable]
+    [XmlInclude(typeof(Computer))]
+    [XmlInclude(typeof(NetworkComponent))]
+    [XmlInclude(typeof(Drucker))]
     public class HardwareComponent
     {
         public string UID { get; set; }

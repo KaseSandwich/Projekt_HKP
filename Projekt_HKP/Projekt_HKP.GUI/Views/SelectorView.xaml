@@ -95,6 +95,7 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Button Content="{Binding DisplayMember}" Grid.Column="0"
+                                Width="200"
                             Command="{Binding OpenDetailViewCommand}"
                                 Style="{DynamicResource MyMetroButton}"
                             Margin="3,3,3,3"/>
@@ -120,12 +121,6 @@
 				Margin="3,3,3,3"
 				Content="Neu"
                     Command="{Binding AddComponentCommand}" Style="{DynamicResource MyMetroButton}"/>
-            <Button Width="100"
-				    Height="30"
-				    Margin="3,3,3,3"
-				    Content="Löschen"
-                    Command="{Binding DeleteComponentCommand}" Style="{DynamicResource MyMetroButton}"
-                    CommandParameter="{Binding ElementName=listView, Path=SelectedItem}"/>
         </StackPanel>
     </Grid>
 </UserControl>

@@ -4,6 +4,7 @@ using System.Threading;
 
 namespace Projekt_HKP.Model.Orgaisation
 {
+    [Serializable]
     public class Department
     {
         public string UID { get; set; }

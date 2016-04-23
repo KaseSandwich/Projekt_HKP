@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 
 namespace Projekt_HKP.Model.Orgaisation
 {
+    [Serializable]
     public class Company
     {
         public string UID { get; set; }

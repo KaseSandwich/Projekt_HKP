@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Projekt_HKP.Model.Hardware.Implementations
 {
+    [Serializable]
     public class Drucker : HardwareComponent
     {
         public bool ColorJN { get; set; }

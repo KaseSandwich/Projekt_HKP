@@ -5,6 +5,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
+using System.Xml.Serialization;
 using Newtonsoft.Json;
 using NUnit.Framework;
 using Projekt_HKP.Lib.DataAccess;
@@ -15,22 +17,25 @@ using Projekt_HKP.Model.Orgaisation;
 namespace Projekt_HKP.Tests
 {
     [TestFixture]
-    public class JsonDataServiceTests
+    public class XmlDataServiceTests
     {
-        const string jsonString = "{\"$type\":\"Projekt_HKP.Model.Orgaisation.Company, Projekt_HKP.Model\",\"UID\":\"d7d9af8b-90fc-4290-b254-6b4e6cd1a267\",\"Name\":\"Meine Firma\",\"Buildings\":{\"$type\":\"System.Collections.ObjectModel.ObservableCollection`1[[Projekt_HKP.Model.Orgaisation.Building, Projekt_HKP.Model]], System\",\"$values\":[{\"$type\":\"Projekt_HKP.Model.Orgaisation.Building, Projekt_HKP.Model\",\"UID\":\"a3fce9dd-c3f9-4583-9050-ff9b71577301\",\"CompanyUID\":\"d7d9af8b-90fc-4290-b254-6b4e6cd1a267\",\"Name\":\"Gebäude1\",\"Rooms\":{\"$type\":\"System.Collections.ObjectModel.ObservableCollection`1[[Projekt_HKP.Model.Orgaisation.Room, Projekt_HKP.Model]], System\",\"$values\":[{\"$type\":\"Projekt_HKP.Model.Orgaisation.Room, Projekt_HKP.Model\",\"UID\":\"69f332ed-d072-47e2-8667-e693437f4089\",\"BuildingUID\":\"a3fce9dd-c3f9-4583-9050-ff9b71577301\",\"RoomNumber\":1,\"Components\":{\"$type\":\"System.Collections.Generic.List`1[[Projekt_HKP.Model.Hardware.HardwareComponent, Projekt_HKP.Model]], mscorlib\",\"$values\":[{\"$type\":\"Projekt_HKP.Model.Hardware.Implementations.DesktopPc, Projekt_HKP.Model\",\"CpuClockSpeed\":3.0,\"RamAmount\":16.0,\"HardDiskSpace\":500.0,\"NetworkSpeed\":100.0,\"UID\":\"668f3f5e-c41d-437d-9fc1-890e32d66d8f\",\"RoomUID\":\"69f332ed-d072-47e2-8667-e693437f4089\",\"Name\":\"Mein Desktop PC\",\"Description\":\"Toller Rechner\",\"AcquisitionDate\":\"2016-01-01T00:00:00\",\"MaintenanceDate\":\"2016-04-01T00:00:00\",\"Log\":null},{\"$type\":\"Projekt_HKP.Model.Hardware.Implementations.Switch, Projekt_HKP.Model\",\"NumberOfPorts\":24,\"NetworkSpeed\":50.0,\"MaxConnections\":24,\"UID\":\"9ab9b4b9-2d3c-497c-a8a3-3fe4c5312f2b\",\"RoomUID\":\"69f332ed-d072-47e2-8667-e693437f4089\",\"Name\":\"Mein Switch\",\"Description\":\"Toller Switch\",\"AcquisitionDate\":\"2016-02-01T00:00:00\",\"MaintenanceDate\":\"2016-03-01T00:00:00\",\"Log\":null}]}}]}},{\"$type\":\"Projekt_HKP.Model.Orgaisation.Building, Projekt_HKP.Model\",\"UID\":\"08726fcc-c0c4-49a0-83ca-575898f1d76b\",\"CompanyUID\":\"d7d9af8b-90fc-4290-b254-6b4e6cd1a267\",\"Name\":\"Gebäude2\",\"Rooms\":{\"$type\":\"System.Collections.ObjectModel.ObservableCollection`1[[Projekt_HKP.Model.Orgaisation.Room, Projekt_HKP.Model]], System\",\"$values\":[{\"$type\":\"Projekt_HKP.Model.Orgaisation.Room, Projekt_HKP.Model\",\"UID\":\"e5ebe64c-3a04-4566-ae56-ab6a833c5b56\",\"BuildingUID\":\"08726fcc-c0c4-49a0-83ca-575898f1d76b\",\"RoomNumber\":2,\"Components\":{\"$type\":\"System.Collections.Generic.List`1[[Projekt_HKP.Model.Hardware.HardwareComponent, Projekt_HKP.Model]], mscorlib\",\"$values\":[]}}]}}]}}";
+        const string xmlString =
+            "<?xml version=\"1.0\" encoding=\"utf-16\"?>\r\n<Company xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">\r\n  <UID>28e95769-3e8e-4100-b497-089d065151f8</UID>\r\n  <Name>Meine Firma</Name>\r\n  <Buildings>\r\n    <Building>\r\n      <UID>e6ceba76-a9d3-4337-9bfe-d182e7d90a4e</UID>\r\n      <CompanyUID>28e95769-3e8e-4100-b497-089d065151f8</CompanyUID>\r\n      <Name>Gebäude1</Name>\r\n      <Rooms>\r\n        <Room>\r\n          <UID>5f3e95a7-844e-4cb8-a031-d233642ce2c4</UID>\r\n          <BuildingUID>e6ceba76-a9d3-4337-9bfe-d182e7d90a4e</BuildingUID>\r\n          <RoomNumber>1</RoomNumber>\r\n          <Components>\r\n            <HardwareComponent xsi:type=\"DesktopPc\">\r\n              <UID>4eb60a27-d0de-4f8e-a1b8-b67ec2991c98</UID>\r\n              <RoomUID>5f3e95a7-844e-4cb8-a031-d233642ce2c4</RoomUID>\r\n              <Name>Mein Desktop PC</Name>\r\n              <Description>Toller Rechner</Description>\r\n              <AcquisitionDate>2016-01-01T00:00:00</AcquisitionDate>\r\n              <MaintenanceDate>2016-04-01T00:00:00</MaintenanceDate>\r\n              <CpuClockSpeed>3</CpuClockSpeed>\r\n              <RamAmount>16</RamAmount>\r\n              <HardDiskSpace>500</HardDiskSpace>\r\n              <NetworkSpeed>100</NetworkSpeed>\r\n            </HardwareComponent>\r\n            <HardwareComponent xsi:type=\"Switch\">\r\n              <UID>3c25b438-92b1-40eb-a31d-4db6da54d836</UID>\r\n              <RoomUID>5f3e95a7-844e-4cb8-a031-d233642ce2c4</RoomUID>\r\n              <Name>Mein Switch</Name>\r\n              <Description>Toller Switch</Description>\r\n              <AcquisitionDate>2016-02-01T00:00:00</AcquisitionDate>\r\n              <MaintenanceDate>2016-03-01T00:00:00</MaintenanceDate>\r\n              <NetworkSpeed>50</NetworkSpeed>\r\n              <MaxConnections>24</MaxConnections>\r\n              <NumberOfPorts>24</NumberOfPorts>\r\n            </HardwareComponent>\r\n          </Components>\r\n        </Room>\r\n      </Rooms>\r\n    </Building>\r\n    <Building>\r\n      <UID>8c64bb74-f4f5-4d94-8788-6ea06d76514c</UID>\r\n      <CompanyUID>28e95769-3e8e-4100-b497-089d065151f8</CompanyUID>\r\n      <Name>Gebäude2</Name>\r\n      <Rooms>\r\n        <Room>\r\n          <UID>6ea8c6b6-c951-405d-b30b-0353b048dca2</UID>\r\n          <BuildingUID>8c64bb74-f4f5-4d94-8788-6ea06d76514c</BuildingUID>\r\n          <RoomNumber>2</RoomNumber>\r\n          <Components />\r\n        </Room>\r\n      </Rooms>\r\n    </Building>\r\n  </Buildings>\r\n</Company>";
 
-        private JsonDataService Service { get; set; }
+
+        private XmlDataService Service { get; set; }
 
         [SetUp]
         public void SetUp()
         {
-            JsonSerializerSettings settings = new JsonSerializerSettings
-            {
-                TypeNameHandling = TypeNameHandling.All
-            };
+            XmlSerializer ser = new XmlSerializer(typeof(Company));
+            Company result;
 
-            var company = JsonConvert.DeserializeObject<Company>(jsonString, settings);
-            Service = new JsonDataService(company);
+            using (TextReader reader = new StringReader(xmlString))
+            { 
+                result = (Company)ser.Deserialize(reader);
+            }
+            Service = new XmlDataService(result);
         }
 
         #region Components
@@ -64,7 +69,7 @@ namespace Projekt_HKP.Tests
         [Category("Component")]
         public void GetComponentByUid_ValidUid_IsSwitch()
         {
-            var comp = Service.GetComponentByUid("9ab9b4b9-2d3c-497c-a8a3-3fe4c5312f2b");
+            var comp = Service.GetComponentByUid("3c25b438-92b1-40eb-a31d-4db6da54d836");
 
             Assert.That(comp, Is.TypeOf<Switch>());
         }
@@ -73,7 +78,7 @@ namespace Projekt_HKP.Tests
         [Category("Component")]
         public void GetComponentsOfBuilding_ValidUid_TwoComponents()
         {
-            var comps = Service.GetComponentsOfBuilding("a3fce9dd-c3f9-4583-9050-ff9b71577301");
+            var comps = Service.GetComponentsOfBuilding("e6ceba76-a9d3-4337-9bfe-d182e7d90a4e");
 
             Assert.That(comps.Count, Is.EqualTo(2));
         }
@@ -82,7 +87,7 @@ namespace Projekt_HKP.Tests
         [Category("Component")]
         public void GetComponentsOfRoom_ValidUid_OneComponents()
         {
-            var comps = Service.GetComponentsOfRoom("69f332ed-d072-47e2-8667-e693437f4089");
+            var comps = Service.GetComponentsOfRoom("5f3e95a7-844e-4cb8-a031-d233642ce2c4");
 
             Assert.That(comps.Count, Is.EqualTo(2));
         }
@@ -127,7 +132,7 @@ namespace Projekt_HKP.Tests
         [Category("Room")]
         public void GetAllRoomsForBuilding_ValidBuilding_TwoRooms()
         {
-            var rooms = Service.GetAllRoomsForBuilding("a3fce9dd-c3f9-4583-9050-ff9b71577301");
+            var rooms = Service.GetAllRoomsForBuilding("e6ceba76-a9d3-4337-9bfe-d182e7d90a4e");
 
             Assert.That(rooms.Count, Is.EqualTo(1));
         }
@@ -136,7 +141,7 @@ namespace Projekt_HKP.Tests
         [Category("Room")]
         public void GetRoomByUID_ExistingUID_RommNumber1()
         {
-            var room = Service.GetRoomByUid("69f332ed-d072-47e2-8667-e693437f4089");
+            var room = Service.GetRoomByUid("5f3e95a7-844e-4cb8-a031-d233642ce2c4");
 
             Assert.That(room.RoomNumber, Is.EqualTo(1));
         }
@@ -165,7 +170,7 @@ namespace Projekt_HKP.Tests
         [Category("Building")]
         public void GetBuildingByUid_ExistingUID_Gebaeude1()
         {
-            var building = Service.GetBuildingByUid("a3fce9dd-c3f9-4583-9050-ff9b71577301");
+            var building = Service.GetBuildingByUid("e6ceba76-a9d3-4337-9bfe-d182e7d90a4e");
             Assert.That(building.Name, Is.EqualTo("Gebäude1"));
         }
 
